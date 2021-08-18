@@ -12,7 +12,7 @@ import { LancamentoService } from 'src/app/servicos/lancamento.service';
 export class LancamentosComponent implements OnInit, OnDestroy {
 
   lancamentos: Lancamento[] = [];
-  
+
   dataHoraAtual = '';
   dataHoraAtualSub: Subscription | undefined;
   
@@ -49,6 +49,10 @@ export class LancamentosComponent implements OnInit, OnDestroy {
 
   atualizarDataHora() {
     this.dataHoraService.atualizarDataHora();
+  }
+
+  downloadCSV() {
+    this.lancamentoService.downloadCSV(this.lancamentos);
   }
 
 }
